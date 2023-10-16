@@ -18,7 +18,7 @@ const data = {
       name: 'Madonna and Child',
       slug: 'Madonna and Child',
       category: 'Religious',
-      image: '/images/2a.png',
+      image: '/images/2a.jpg',
       price: 50,
       countInStock: 1,
       from: 'Italy',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-function ProductScreen() {
+function Product() {
   const params = useParams();
   const { slug } = params;
 
@@ -12,4 +12,4 @@ function ProductScreen() {
   );
 }
 
-export default ProductScreen;
+export default Product;
