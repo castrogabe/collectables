@@ -90,3 +90,21 @@ Rating.js > added
 . Add React spinner in LoadingBox
 . utils.js to define error function
 . update server.js in backend
+
+# Fifth Commit, Cart
+
+BACKEND
+data.js > updated with id number
+
+FRONTEND
+folder: pages
+Cart.js > added
+
+App.js > updated
+Store.js > added
+Product.js > updated
+
+. Add \_id number to products array in data.js
+. Create Cart page
+. add app.get to server.js to fetch products by \_id
+. Update index.js for React 18

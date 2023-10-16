@@ -154,22 +154,22 @@ a.socialIcon {
   margin: 0 1rem;
 }
 .socialIcon a:hover {
-  color: var(--primary);
+  color: var(--dark);
 }
 .socialIcon {
   margin: 0 1rem;
   transition: transform 250ms;
 }
 a.facebookIcon {
-  color: var(--dark);
+  color: var(--primary);
   text-decoration: none !important;
 }
 a.youtubeIcon {
-  color: var(--dark);
+  color: var(--primary);
   text-decoration: none !important;
 }
 a.email {
-  color: var(--dark);
+  color: var(--primary);
   text-decoration: none !important;
 }
 
