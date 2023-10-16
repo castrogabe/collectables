@@ -286,6 +286,10 @@ a.facebookIcon {
   color: var(--primary);
   text-decoration: none !important;
 }
+a.instagramIcon {
+  color: var(--primary);
+  text-decoration: none !important;
+}
 a.youtubeIcon {
   color: var(--primary);
   text-decoration: none !important;

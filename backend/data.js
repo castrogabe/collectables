@@ -6,9 +6,9 @@ import bcrypt from 'bcryptjs';
 const data = {
   users: [
     {
-      name: 'Gabe',
-      email: 'admin@example.com',
-      password: bcrypt.hashSync('123456'),
+      name: 'Gabriel Castro',
+      email: 'gabudemy@gmail.com',
+      password: bcrypt.hashSync('admin1234'),
       isAdmin: true,
     },
     {
@@ -72,7 +72,7 @@ const data = {
       price: 50,
       countInStock: 1,
       from: 'China',
-      finish: 'Black Chrome',
+      finish: 'Bone & Metal',
       rating: 5,
       numReviews: 1,
       description:
