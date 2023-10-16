@@ -189,7 +189,7 @@ orderRouter.put(
 
     // Create email content for the shipping confirmation
     const emailContent = {
-      from: 'gabudemy@gmail.com',
+      from: 'gabudemy@gmail.com', // your email
       to: customerEmail,
       subject: 'Shipping notification from antiquepox', // email subject
       html: shippingDetails,
