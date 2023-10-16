@@ -96,14 +96,15 @@ main {
 /********************** Product page *********************/
 /* Product card */
 .card {
-  min-width: 10rem;
+  min-width: 14rem;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   text-align: left;
-  min-width: 14rem;
   padding: 1rem;
+  max-height: 100%;
 }
+
 .card-title {
   text-decoration: none;
 }
@@ -112,6 +113,11 @@ main {
   text-decoration: none;
   box-shadow: 0 4px 20px 2px var(--bold);
   transform: scale(1.1);
+}
+.card-img-top {
+  max-height: 500px;
+  object-fit: cover;
+  width: 100%;
 }
 
 /* image zoom - product screen */
