@@ -108,3 +108,46 @@ Product.js > updated
 . Create Cart page
 . add app.get to server.js to fetch products by \_id
 . Update index.js for React 18
+
+# Sixth Commit Signin, Cart pages, JWT, Connect MongoDB
+
+BACKEND
+data.js > comment out id number updated
+env.example > added
+server.js > updated
+
+folder: models
+productModel.js > added
+userModel.js > added
+
+folder: routes
+productRoutes.js > added
+seedRoutes.js > added
+userRoutes.js > added
+
+utils.js > added
+
+FRONTEND
+folder: components
+Header.js > updated
+Product.js > updated
+Rating.js > updated
+
+folder: pages
+Cart.js > updated
+Product.js > updated
+Signin.js > added
+
+App.js > updated
+Store.js > updated
+data.js > deleted
+
+. Connect to MongoDB using Atlas (create account if you don't have one)
+add: JWT_SECRET = your secret word
+add: MONGODB_URI = your mongo_db connection
+. Update and install all dependencies in {}package.json needed in backend
+. Signin to API
+. read data.js to database (fix data.js, all lowercase)
+. fix components > Product.js in frontend (Line 16)
+. fix pages > Product.jd (Line 81)
+. Comment out \_id's in data.js (backend)
