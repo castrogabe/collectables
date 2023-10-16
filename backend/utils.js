@@ -239,7 +239,7 @@ export const sendShippingConfirmationEmail = async (req, order) => {
 
   // Create email content for shipping confirmation
   const emailContent = {
-    from: 'gabudemy@gmail.com', // your email
+    from: 'gabudemy@gmail.com',
     to: customerEmail,
     subject: 'Shipping Confirmation from antiquepox', // email subject
     html: shippingConfirmationDetails,
