@@ -146,7 +146,7 @@ orderRouter.put(
       const emailContent = {
         from: 'gabudemy@gmail.com', // your email
         to: customerEmail,
-        subject: 'PayPal Purchase Receipt from antiquepox', // email subject
+        subject: 'PayPal Purchase Receipt from antiquepox.com', // email subject
         html: purchaseDetails,
       };
 
@@ -191,7 +191,7 @@ orderRouter.put(
     const emailContent = {
       from: 'gabudemy@gmail.com', // your email
       to: customerEmail,
-      subject: 'Shipping notification from antiquepox', // email subject
+      subject: 'Shipping notification from antiquepox.com', // email subject
       html: shippingDetails,
     };
 

@@ -61,7 +61,7 @@ const Footer = () => {
                 <i className='fa fa-envelope'></i> Contact Us
               </Link>
               <li>
-                <a href='mailto:email@gmail.com' className='email'>
+                <a href='mailto:gabudemy@gmail.com' className='email'>
                   <i className='fa fa-envelope'></i> Email Me via gmail
                 </a>
               </li>

@@ -14,7 +14,6 @@ import {
 import ReactImageMagnify from 'react-image-magnify';
 import Rating from '../components/Rating';
 import { Helmet } from 'react-helmet-async';
-import SkeletonProductMag from '../components/skeletons/SkeletonProductMag';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
 import { Store } from '../Store';
@@ -24,6 +23,7 @@ import 'react-image-lightbox/style.css';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { useMediaQuery } from 'react-responsive';
+import SkeletonProductMag from '../components/skeletons/SkeletonProductMag';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -68,6 +68,9 @@ function ProductMag() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       try {
+        // Simulate delay for 1.5 seconds
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
         const result = await axios.get(`/api/products/slug/${slug}`);
         dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
@@ -164,7 +167,7 @@ function ProductMag() {
   };
   // end zoom magnifier
 
-  const mobileView = useMediaQuery({ maxWidth: 768 });
+  const mobileView = useMediaQuery({ maxWidth: 992 });
 
   return loading ? (
     <SkeletonProductMag />
@@ -173,11 +176,9 @@ function ProductMag() {
   ) : (
     <div className='content'>
       <br />
-      <div className='box'>
-        <Row>
-          <p className='mt-3'>~ All of the items have been hand picked. ~</p>
-        </Row>
-      </div>
+      <Row className='box'>
+        <p className='mt-3'>~ All of the items have been hand picked. ~</p>
+      </Row>
       <br />
       <Row>
         <Col md={6} className='container'>

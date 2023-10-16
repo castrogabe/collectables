@@ -27,7 +27,9 @@ export default function ForgetPassword() {
       const { data } = await Axios.post('/api/users/forget-password', {
         email,
       });
-      toast.success(data.message);
+      toast.success(data.message, {
+        autoClose: 1000, // Duration in milliseconds (1 second)
+      });
     } catch (err) {
       toast.error(getError(err));
     }

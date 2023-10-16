@@ -80,7 +80,9 @@ export default function UserEdit() {
       dispatch({
         type: 'UPDATE_SUCCESS',
       });
-      toast.success('User updated successfully');
+      toast.success('User updated successfully', {
+        autoClose: 1000, // Duration in milliseconds (1 second)
+      });
       navigate('/admin/users');
     } catch (error) {
       toast.error(getError(error));

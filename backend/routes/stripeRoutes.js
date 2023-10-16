@@ -54,7 +54,7 @@ stripeRouter.get('/secret/:id', async (req, res) => {
     const emailContent = {
       from: 'gabudemy@gmail.com', // your email
       to: customerEmail,
-      subject: 'Stripe Purchase Receipt from antiquepox.com',
+      subject: 'Stripe Purchase Receipt from antiquepox.com', // email subject
       html: purchaseDetails,
     };
 

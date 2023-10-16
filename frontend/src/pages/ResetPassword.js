@@ -35,7 +35,9 @@ export default function ResetPassword() {
         token,
       });
       navigate('/signin');
-      toast.success('Password updated successfully');
+      toast.success('Password updated successfully', {
+        autoClose: 1000, // Duration in milliseconds (1 second)
+      });
     } catch (err) {
       toast.error(getError(err));
     }

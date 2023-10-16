@@ -59,8 +59,8 @@ export const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, // set to true if using SSL/TLS
   auth: {
-    user: 'gabudemy',
-    pass: 'xxxxxxxxxxxxxxxx', // actual password used in testing
+    user: process.env.NODE_USER,
+    pass: process.env.NODE_PASSWORD,
   },
 });
 
@@ -161,7 +161,7 @@ export const shipOrderEmailTemplate = (order) => {
     }</strong> days.</p>
     <p>Your package shipped <strong>${order.carrierName}.</strong></p>
     <p>Your tracking number is: <strong>${order.trackingNumber}</strong></p>
-    <p>Please email me at antiquepox@gmail.com if you have any questions.</p>
+    <p>Please email me at gabudemy@gmail.com if you have any questions.</p>
     
     <h2>Order ${order._id} (${order.createdAt
     .toISOString()
@@ -239,7 +239,7 @@ export const sendShippingConfirmationEmail = async (req, order) => {
 
   // Create email content for shipping confirmation
   const emailContent = {
-    from: 'gabudemy@gmail.com',
+    from: 'gabudemy@gmail.com', // your email
     to: customerEmail,
     subject: 'Shipping Confirmation from antiquepox', // email subject
     html: shippingConfirmationDetails,

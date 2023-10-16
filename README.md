@@ -445,3 +445,31 @@ Signup.js > updated
 Signup.js > updated
 
 index.css > update image size in components > Product.js
+
+# Sixteenth Commit Final
+
+BACKEND
+folder: models
+productModel.js > updated
+
+folder: routes
+orderRoutes.js > updated
+stripeRoutes.js > updated
+userRoutes.js > updated
+
+server.js > updated
+utils.js > updated
+config.js > updated
+
+FRONTEND
+folder: components
+skeleton/SkeletonProductMag.js > updated
+
+folder: pages
+ForgetPassword.js > updated
+ProductEdit.js > updated
+ProductMag.js > updated
+ResetPassword.js > updated
+Signin.js > updated
+UserEdit.js > updated
+UserList.js > updated

@@ -184,7 +184,7 @@ userRouter.post(
       console.log(`${baseUrl()}/reset-password/${token}`);
 
       const emailContent = {
-        from: 'gabudemy@gmail.com',
+        from: 'antiquepox.com',
         to: `${user.name} <${user.email}>`,
         subject: `Reset Password`,
         html: ` 
