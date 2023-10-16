@@ -18,4 +18,13 @@ BottomFooter.js >added
 Home.js > added
 About.js > added
 Gallery.js > added
-# collectables
+
+. Create Git Repository
+
+# Second Commit add static data
+
+FRONTEND
+.folder: pages
+Product.js > added
+
+data.js > added (root)
