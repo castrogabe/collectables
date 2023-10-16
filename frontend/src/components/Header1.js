@@ -61,7 +61,7 @@ function Header() {
             </Button>
             <Container>
               <LinkContainer to='/'>
-                <Navbar.Brand>Exotic Wood Pen</Navbar.Brand>
+                <Navbar.Brand>Calvintiques</Navbar.Brand>
               </LinkContainer>
 
               <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -71,7 +71,7 @@ function Header() {
 
                 <Nav className='me-auto  w-100  justify-content-end'>
                   <LinkContainer to='/about'>
-                    <Nav.Link>About Me</Nav.Link>
+                    <Nav.Link>About Us</Nav.Link>
                   </LinkContainer>
 
                   {/* Categories on mobile */}

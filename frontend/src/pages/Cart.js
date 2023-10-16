@@ -32,6 +32,7 @@ export default function Cart() {
   const checkoutHandler = () => {
     navigate('/signin?redirect=/shipping');
   };
+
   return (
     <div className='content'>
       <Helmet>
@@ -93,7 +94,6 @@ export default function Cart() {
             </ListGroup>
           )}
         </Col>
-
         <Col md={4}>
           <Card>
             <Card.Body>
