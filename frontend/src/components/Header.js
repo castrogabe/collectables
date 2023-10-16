@@ -19,8 +19,8 @@ const Header = () => {
       <Navbar className='header' variant='dark' expand='lg'>
         <ToastContainer position='bottom-center' limit={1} />
         <LinkContainer to='/'>
-          <Navbar.Brand>
-            <img src='./images/logo1.png' className='logo'></img>
+          <Navbar.Brand className='me-auto'>
+            <img src='./images/logo1.png' alt='logo'></img>
           </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls='basic-navbar-nav' />

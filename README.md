@@ -151,3 +151,22 @@ add: MONGODB_URI = your mongo_db connection
 . fix components > Product.js in frontend (Line 16)
 . fix pages > Product.jd (Line 81)
 . Comment out \_id's in data.js (backend)
+
+# Seventh Commit-CSS, Jumbotron
+
+FRONTEND
+folder: components
+Product.js > updated
+Jumbotron.js > added
+
+folder: pages
+Home.js > updated Typewriter Effect
+
+. CSS adjustments for Responsive logo in Navbar.Brand
+left side use ClassName="me-auto" (Line 22)
+CSS realignment by category
+. Add toast notification to components > Product.js (Line 29-32)
+app.js (Lines 11-12, 20)
+. Jumbotron with react-typewriter-effect
+add components > Jumbotron.js
+add Jumbotron in Home.js (Lines 46-50)

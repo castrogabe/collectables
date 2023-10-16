@@ -267,7 +267,7 @@ const data = {
       rating: 5,
       numReviews: 1,
       description:
-        'Hand made spiral staircase inspired by Sam Maloof staircase, Curly Maple base, Apitong wood stairs. ',
+        'Hand made spiral staircase inspired by Sam Maloof staircase, Curly Maple base, Apitong wood stairs, spire, and 4 layer lamination handrail, made by Gabe Castro.',
     },
   ],
 };
