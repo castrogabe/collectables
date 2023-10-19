@@ -2,7 +2,7 @@
 
 . create git repository called antiquepox
 
-# 1st Commit-Antiquepox Layout components and pages
+# 1st Commit-Antiquepox Layout components and pages (rfce, rfc)
 
 . Create React App
 . Add Bootstrap and all css
@@ -15,6 +15,29 @@ Footer.js > added
 BottomFooter.js >added
 
 .folder: pages
+
+## rfce:
+
+import React from 'react'
+function Home {
+Return (
+
+<div>Home Page</div>
+)
+};
+export default Home
+
+## rfc:
+
+import React from 'react'
+
+export default function NewPage() {
+return (
+
+<div>NewPage</div>
+)
+}
+
 Home.js > added
 About.js > added
 Gallery.js > added
@@ -442,7 +465,6 @@ Product.js > updated
 folder > pages
 ResetPassword.js > updated
 Signup.js > updated
-Signup.js > updated
 
 index.css > update image size in components > Product.js
 
@@ -473,3 +495,11 @@ ResetPassword.js > updated
 Signin.js > updated
 UserEdit.js > updated
 UserList.js > updated
+
+# Seventeenth Commit React-Lazyload
+
+FRONTEND
+npm install react-lazyload
+
+folder > components
+Product.js > updated for Lazyloading images
