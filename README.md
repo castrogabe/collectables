@@ -510,3 +510,9 @@ BACKEND
 .env.example > updated with correct secret word "collecting" for jwt
 utils.js > updated with website: exoticwoodpen.com
 config.js > updated
+
+# Nineteenth Commit Final Footer bug fix
+
+FRONTEND
+folder > components
+Footer.js > updated for potential security vulnerabilities
