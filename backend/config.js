@@ -4,7 +4,7 @@ dotenv.config();
 
 export default {
   PORT: process.env.PORT || 8000,
-  JWT_SECRET: process.env.JWT_SECRET,
+  JWT_SECRET: process.env.JWT_SECRET || 'collecting',
   MONGODB_URL: process.env.MONGODB_URI || 'mongodb://localhost/frontend',
 
   CLOUDINARY_CLOUD_NAME: process.env.name || 'name',
