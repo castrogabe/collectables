@@ -516,3 +516,7 @@ config.js > updated
 FRONTEND
 folder > components
 Footer.js > updated for potential security vulnerabilities
+
+# Thirteenth Commit edit package.json for deployment
+
+create package.json for build script in root folder
