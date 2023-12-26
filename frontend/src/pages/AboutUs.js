@@ -9,9 +9,12 @@ export default function AboutUs() {
         <Helmet>
           <title>About Us</title>
         </Helmet>
+        <br />
         <Row>
-          <Col className='mt-3'>
+          <div className='box'>
             <h2>About Us</h2>
+          </div>
+          <Col className='box'>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
               dignissim purus at libero hendrerit dapibus. Vestibulum vel felis

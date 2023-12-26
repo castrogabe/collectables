@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useReducer } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Row, Col } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { LinkContainer } from 'react-router-bootstrap';
 import { toast } from 'react-toastify';
-import SkeletonMessage from '../components/skeletons/SkeletonMessage';
 import MessageBox from '../components/MessageBox';
 import axios from 'axios';
 import { getError } from '../utils';
+import SkeletonMessage from '../components/skeletons/SkeletonMessage';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -55,6 +55,38 @@ export default function Messages() {
     error: '',
   });
 
+  // State to manage reply form visibility and data
+  const [replyVisible, setReplyVisible] = useState(false);
+  const [replyMessage, setReplyMessage] = useState({
+    fullName: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  // Function to handle opening the reply form
+  const sendReply = async () => {
+    try {
+      const response = await axios.post('/messages/reply', {
+        email: replyMessage.email,
+        subject: replyMessage.subject,
+        message: replyMessage.replyContent, // Assuming this is the reply message content from the form
+      });
+
+      // Display a success toast message when the reply is sent successfully
+      toast.success('Reply sent successfully', {
+        autoClose: 1500, // Adjust the duration as needed (in milliseconds)
+      });
+
+      console.log(response.data); // Log the response from the backend
+      // Close the reply form after sending the reply
+      setReplyVisible(false);
+    } catch (error) {
+      console.error('Error sending reply:', error);
+      // Add error handling logic (e.g., show an error message)
+    }
+  };
+
   useEffect(() => {
     fetch('/messages')
       .then((res) => {
@@ -62,12 +94,21 @@ export default function Messages() {
           return res.json();
         }
       })
-      .then((jsonRes) => setMessages(jsonRes));
+      .then((jsonRes) => {
+        setMessages(jsonRes);
+        console.log('Messages:', jsonRes); // Log entire messages array
+        if (jsonRes.length > 0) {
+          console.log('Sample Message:', jsonRes[0]); // Log a sample message
+        }
+      });
   }, []);
 
   // delete messages
   useEffect(() => {
     const fetchData = async () => {
+      // Simulate delay for 1.5 seconds
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       try {
         dispatch({ type: 'FETCH_REQUEST' });
         const message = await axios.get(`/messages`);
@@ -86,23 +127,30 @@ export default function Messages() {
     }
   }, [messages, successDelete]);
 
-  const deleteHandler = async (message) => {
+  const deleteHandler = async (messageToDelete) => {
     if (window.confirm('Are you sure to delete?')) {
       try {
         dispatch({ type: 'DELETE_REQUEST' });
         await axios.delete('/messages', {
           data: {
-            update_time: message.update_time,
-            fullName: message.fullName,
-            email: message.email,
-            subject: message.subject,
-            message: message.message,
+            update_time: messageToDelete.update_time,
+            fullName: messageToDelete.fullName,
+            email: messageToDelete.email,
+            subject: messageToDelete.subject,
+            message: messageToDelete.message,
           },
         });
-        toast.success('Message deleted successfully');
+        toast.success('Message deleted successfully', {
+          autoClose: 1500, // Display success message for 1 second
+        });
         dispatch({ type: 'DELETE_SUCCESS' });
+
+        // Update the messages state by filtering out the deleted message
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message.id !== messageToDelete.id)
+        );
       } catch (err) {
-        toast.error(getError(error));
+        toast.error(getError(err));
         dispatch({
           type: 'DELETE_FAIL',
         });
@@ -117,76 +165,138 @@ export default function Messages() {
   };
 
   return (
-    <div className='content'>
+    <>
       <Helmet>
         <title>Messages</title>
       </Helmet>
-      <br />
-      <h1 className='box'>Your Messages</h1>
-      <div className='box'>
-        {loadingDelete && <SkeletonMessage />}
-        {loading ? (
-          <SkeletonMessage />
-        ) : error ? (
-          <MessageBox variant='danger'>{error}</MessageBox>
-        ) : (
-          <Table responsive striped bordered className='noWrap'>
-            <thead>
-              <tr>
-                <th>DATE</th>
-                <th>NAME</th>
-                <th>EMAIL</th>
-                <th>SUBJECT</th>
-                <th>Message</th>
-              </tr>
-            </thead>
-            <tbody>
-              {messages &&
-                messages.map((message) => (
-                  <tr key={message}>
-                    <td>
-                      {message.createdAt
-                        ? message.createdAt.substring(0, 10)
-                        : ''}
-                    </td>
-                    <td>{message.fullName}</td>
-                    <td>{message.email}</td>
-                    <td>{message.subject}</td>
-                    <td>{message.message}</td>
-                    <td>
-                      <Button
-                        type='button'
-                        variant='primary'
-                        onClick={() => deleteHandler(message)}
-                      >
-                        Delete
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </Table>
-        )}
-      </div>
+      <div className='content'>
+        <br />
+        <h4 className='box'>Messages</h4>
+        <div className='box'>
+          {loadingDelete && <SkeletonMessage />}
+          {loading ? (
+            <Row>
+              {[...Array(8).keys()].map((i) => (
+                <Col key={i} md={12} className='mb-3'>
+                  <SkeletonMessage />
+                </Col>
+              ))}
+            </Row>
+          ) : error ? (
+            <MessageBox variant='danger'>{error}</MessageBox>
+          ) : (
+            <Table responsive striped bordered className='noWrap'>
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>NAME</th>
+                  <th>EMAIL</th>
+                  <th>SUBJECT</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                {messages &&
+                  messages.map((message) => (
+                    <tr key={message}>
+                      <td>
+                        {message.createdAt
+                          ? message.createdAt.substring(0, 10)
+                          : message.update_time}
+                      </td>
+                      <td>{message.fullName}</td>
+                      <td>{message.email}</td>
+                      <td>{message.subject}</td>
+                      <td>{message.message}</td>
+                      <td>
+                        <Button
+                          type='button'
+                          variant='primary'
+                          onClick={() => {
+                            setReplyMessage({
+                              fullName: message.fullName,
+                              email: message.email,
+                              subject: `Re: ${message.subject}`,
+                              message: `Dear ${message.fullName},\n\n`,
+                            });
+                            setReplyVisible(true);
+                          }}
+                        >
+                          Reply
+                        </Button>
+                      </td>
+                      <td>
+                        <Button
+                          type='button'
+                          variant='primary'
+                          onClick={() => deleteHandler(message)}
+                        >
+                          Delete
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+              </tbody>
+            </Table>
+          )}
+        </div>
 
-      {/* Pagination */}
-      <div>
-        {[...Array(pages).keys()].map((x) => (
-          <LinkContainer
-            key={x + 1}
-            className='mx-1'
-            to={getFilterUrl({ page: x + 1 })}
-          >
-            <Button
-              className={Number(page) === x + 1 ? 'text-bold' : ''}
-              variant='light'
+        {/* Reply Form/Dialog */}
+        {replyVisible && (
+          <div className='box'>
+            <h2>Reply</h2>
+            <form>
+              <div className='form-group'>
+                <label>
+                  Your Reply to {replyMessage.fullName} | {replyMessage.subject}{' '}
+                  | {replyMessage.email}
+                </label>
+                <textarea
+                  className='form-control'
+                  rows='5'
+                  value={replyMessage.replyContent}
+                  onChange={(e) =>
+                    setReplyMessage({
+                      ...replyMessage,
+                      replyContent: e.target.value,
+                    })
+                  }
+                />
+              </div>
+              {/* Submit button and close button */}
+              <Button type='submit' variant='primary' onClick={sendReply}>
+                Send Reply
+              </Button>
+              <Button
+                type='button'
+                variant='secondary'
+                onClick={() => setReplyVisible(false)}
+              >
+                Close
+              </Button>
+            </form>
+          </div>
+        )}
+
+        {/* Pagination */}
+        <div>
+          {[...Array(pages).keys()].map((x) => (
+            <LinkContainer
+              key={x + 1}
+              className='mx-1'
+              to={getFilterUrl({ page: x + 1 })}
             >
-              {x + 1}
-            </Button>
-          </LinkContainer>
-        ))}
+              <Button
+                className={Number(page) === x + 1 ? 'text-bold' : ''}
+                variant='light'
+              >
+                {x + 1}
+              </Button>
+            </LinkContainer>
+          ))}
+        </div>
+        <br />
       </div>
-      <br />
-    </div>
+    </>
   );
 }

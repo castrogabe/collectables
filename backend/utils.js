@@ -69,7 +69,7 @@ export const payOrderEmailTemplate = (order) => {
   // Calculate the total quantity
   const totalQuantity = calculateTotalQuantity(order);
 
-  return `<h1>Thanks for shopping with antiquepox.com, we will send a confirmation when your order ships</h1>
+  return `<h1>Thanks for shopping with gabudemy.com, we will send a confirmation when your order ships</h1>
     <p>
     Hi ${order.user.name},</p>
     <p>We are processing your order.</p>
@@ -153,7 +153,7 @@ export const shipOrderEmailTemplate = (order) => {
   const carrierName = order.orderItems[0]?.carrierName || 'N/A';
   const trackingNumber = order.orderItems[0]?.trackingNumber || 'N/A';
 
-  return `<h1>Thanks for shopping with antiquepox.com</h1>
+  return `<h1>Thanks for shopping with gabudemy.com</h1>
     <p>
     Hi ${order.user.name},</p>
     <p>Great News, your order has been shipped, and will arrive within <strong>${
@@ -241,7 +241,7 @@ export const sendShippingConfirmationEmail = async (req, order) => {
   const emailContent = {
     from: 'gabudemy@gmail.com', // your email
     to: customerEmail,
-    subject: 'Shipping Confirmation from antiquepox', // email subject
+    subject: 'Shipping Confirmation from gabudemy.com', // email subject
     html: shippingConfirmationDetails,
   };
 

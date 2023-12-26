@@ -517,6 +517,22 @@ FRONTEND
 folder > components
 Footer.js > updated for potential security vulnerabilities
 
-# Thirteenth Commit edit package.json for deployment
+# Twentieth Commit edit package.json for deployment
 
 create package.json for build script in root folder
+
+# Twenty First Commit update Contact functionality with nodemailer
+
+FRONTEND
+folder: pages
+Messages.js > updated to add Reply form to users email
+
+BACKEND
+folder: models
+messageModels.js > updated to the replyContent, replyEmail, replySentAt
+
+folder: routes
+messageRoutes.js > updated with the message reply using nodemailer
+
+config.js > updated
+.env.example > updated

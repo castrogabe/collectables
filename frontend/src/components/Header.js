@@ -50,6 +50,12 @@ function Header() {
             <SearchBox />
 
             <Nav className='me-auto  w-100  justify-content-end'>
+              <LinkContainer to='/about'>
+                <Nav.Link>
+                  <i className='fas fa-info'></i> About Us
+                </Nav.Link>
+              </LinkContainer>
+
               {/* Categories on mobile */}
               <NavDropdown
                 className='nav-categories'
