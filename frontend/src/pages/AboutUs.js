@@ -91,7 +91,7 @@ const About = () => {
         <Row>
           <Col md={6}>
             <Card>
-              <Image src='/images/logo.png' alt='antiques' />
+              <Image src='/images/shop.png' alt='antiques' />
             </Card>
           </Col>
           <Col md={6}>
