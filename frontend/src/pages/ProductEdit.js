@@ -165,8 +165,8 @@ export default function ProductEditScreen() {
         <title>Edit Product ${productId}</title>
       </Helmet>
       <Col>
+        <br />
         <h4 className='box'>Product Edit {productId}</h4>
-
         {loading ? (
           <LoadingBox delay={1000} />
         ) : error ? (
@@ -283,6 +283,7 @@ export default function ProductEditScreen() {
               </Button>
               {loadingUpdate && <LoadingBox delay={1000} />}
             </div>
+            <br />
           </Form>
         )}
       </Col>

@@ -65,7 +65,8 @@ export default function Profile() {
       <Helmet>
         <title>User Profile</title>
       </Helmet>
-      <h1 className='my-3'>User Profile</h1>
+      <br />
+      <h1 className='box'>User Profile</h1>
       <form onSubmit={submitHandler}>
         <Form.Group className='mb-3' controlId='name'>
           <Form.Label>Name</Form.Label>

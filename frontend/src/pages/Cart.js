@@ -89,6 +89,13 @@ export default function Cart() {
                       </Button>
                     </Col>
                   </Row>
+                  {/* Low quantity alert */}
+                  {item.countInStock <= 5 && (
+                    <p style={{ color: 'red' }}>
+                      Only {item.countInStock} Left for {item.name}!
+                    </p>
+                  )}
+                  {/* End of low quantity alert */}
                 </ListGroup.Item>
               ))}
             </ListGroup>
@@ -128,6 +135,6 @@ export default function Cart() {
 
 // step 1 (Cart)  <= CURRENT STEP
 // step 2 (ShippingAddresses)
-// step 3 (PaymentMethod)
+// step 3 (PaymentMethod) select radial button for PayPal or Stripe
 // step 4 (PreviewOrder)
-// lands on OrderScreen for payment
+// lands on (Order) for payment

@@ -148,7 +148,10 @@ export default function PlaceOrder() {
               <div className='body'>
                 <title>Payment</title>
                 <text>
-                  <strong>Method:</strong> {cart.paymentMethod}
+                  <strong>Method:</strong>
+                  {cart.paymentMethod === 'Stripe'
+                    ? 'Credit Card'
+                    : cart.paymentMethod}
                 </text>
                 <br />
                 <Link to='/payment'>
@@ -213,6 +216,6 @@ export default function PlaceOrder() {
 
 // step 1 (Cart)
 // step 2 (ShippingAddress)
-// step 3 (PaymentMethod)
+// step 3 (PaymentMethod) select radial button for PayPal or Stripe
 // step 4 (PlaceOrder) <= CURRENT STEP
-// lands on OrderScreen for payment
+// lands on (Order) for payment

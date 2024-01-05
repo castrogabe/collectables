@@ -64,12 +64,12 @@ export const transporter = nodemailer.createTransport({
   },
 });
 
-// Send email receipt
+// **************** Send email receipt *******************
 export const payOrderEmailTemplate = (order) => {
   // Calculate the total quantity
   const totalQuantity = calculateTotalQuantity(order);
 
-  return `<h1>Thanks for shopping with gabudemy.com, we will send a confirmation when your order ships</h1>
+  return `<h1>Thanks for shopping with antiquepox.com, we will send a confirmation when your order ships</h1>
     <p>
     Hi ${order.user.name},</p>
     <p>We are processing your order.</p>
@@ -87,7 +87,7 @@ export const payOrderEmailTemplate = (order) => {
               <tr>
                 <td><img src="${item.image}" alt="${
               item.name
-            }" width="50" height="50" /></td>
+            }" width="100" height="150" /></td>
                 <td>${item.name}</td>
                 <td align="center">Qty: ${item.quantity}</td>
                 <td align="right"> $${item.price.toFixed(2)}</td>
@@ -97,6 +97,10 @@ export const payOrderEmailTemplate = (order) => {
           .join('\n')}
       </tbody>
       <tfoot>
+        <tr>
+          <td colspan="2"><strong>Payment Method:</strong></td>
+          <td align="right"><strong>${order.paymentMethod}</strong></td>
+        </tr>
         <tr>
           <td colspan="2">Total Quantity:</td>
           <td align="right"> ${totalQuantity}</td>
@@ -118,10 +122,6 @@ export const payOrderEmailTemplate = (order) => {
           <td align="right"><strong> $${order.totalPrice.toFixed(
             2
           )}</strong></td>
-        </tr>
-        <tr>
-          <td colspan="2">Payment Method:</td>
-          <td align="right">${order.paymentMethod}</td>
         </tr>
       </tfoot>
     </table>
@@ -153,10 +153,10 @@ export const shipOrderEmailTemplate = (order) => {
   const carrierName = order.orderItems[0]?.carrierName || 'N/A';
   const trackingNumber = order.orderItems[0]?.trackingNumber || 'N/A';
 
-  return `<h1>Thanks for shopping with gabudemy.com</h1>
+  return `<h1>Thanks for shopping with antiquepox.com, your order has shipped!</h1>
     <p>
     Hi ${order.user.name},</p>
-    <p>Great News, your order has been shipped, and will arrive within <strong>${
+    <p>Great News, your order has shipped, and will arrive within <strong>${
       order.deliveryDays
     }</strong> days.</p>
     <p>Your package shipped <strong>${order.carrierName}.</strong></p>
@@ -179,7 +179,7 @@ export const shipOrderEmailTemplate = (order) => {
               <tr>
                 <td><img src="${item.image}" alt="${
               item.name
-            }" width="50" height="50" /></td>
+            }" width="100" height="150" /></td>
                 <td>${item.name}</td>
                 <td align="center">Qty: ${item.quantity}</td>
                 <td align="right"> $${item.price.toFixed(2)}</td>
@@ -189,6 +189,10 @@ export const shipOrderEmailTemplate = (order) => {
           .join('\n')}
       </tbody>
       <tfoot>
+        <tr>
+          <td colspan="2"><strong>Payment Method:</strong></td>
+          <td align="right"><strong>${order.paymentMethod}</strong></td>
+        </tr>
         <tr>
           <td colspan="2">Total Quantity:</td>
           <td align="right"> ${totalQuantity}</td>
@@ -210,10 +214,6 @@ export const shipOrderEmailTemplate = (order) => {
           <td align="right"><strong> $${order.totalPrice.toFixed(
             2
           )}</strong></td>
-        </tr>
-        <tr>
-          <td colspan="2">Payment Method:</td>
-          <td align="right">${order.paymentMethod}</td>
         </tr>
       </tfoot>
     </table>
@@ -241,7 +241,7 @@ export const sendShippingConfirmationEmail = async (req, order) => {
   const emailContent = {
     from: 'gabudemy@gmail.com', // your email
     to: customerEmail,
-    subject: 'Shipping Confirmation from gabudemy.com', // email subject
+    subject: 'Shipping Confirmation from antiquepox.com', // email subject
     html: shippingConfirmationDetails,
   };
 

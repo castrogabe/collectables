@@ -73,7 +73,10 @@ function Product(props) {
         </LazyLoad>
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
+        <Link
+          to={`/product/${product.slug}`}
+          style={{ textDecoration: 'none' }}
+        >
           <Card.Title>{product.name}</Card.Title>
           <Card.Title>From: {product.from}</Card.Title>
           <Card.Title>Finish: {product.finish}</Card.Title>

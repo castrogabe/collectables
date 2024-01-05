@@ -38,6 +38,23 @@ main {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
 
+body {
+  font-size: 20px; /* Adjust the base font size for the entire body */
+}
+h1 {
+  font-size: 24px; /* Adjust the font size for h1 tags */
+}
+h2 {
+  font-size: 20px; /* Adjust the font size for h2 tags */
+}
+p,
+.content,
+.about,
+.search h3,
+.jumbotron1 {
+  font-size: 20px; /* Adjust the font size for paragraphs and specific elements */
+}
+
 .bg-info {
   color: var(--medium);
   background-color: var(--dark) !important;
@@ -105,14 +122,11 @@ main {
   max-height: 100%;
 }
 
-.card-title {
-  text-decoration: none;
-}
 .card-img-top:hover {
   border-radius: 0% !important;
   text-decoration: none;
   box-shadow: 0 4px 20px 2px var(--bold);
-  transform: scale(1.1);
+  transform: scale(1.1); /* hover scale effect */
 }
 .card-img-top {
   max-height: 500px;
@@ -148,7 +162,17 @@ main {
   border-radius: 0% !important;
   text-decoration: none;
   box-shadow: 0 4px 20px 2px var(--bold);
-  transform: scale(1.1);
+  transform: scale(1.1); /* hover scale effect */
+}
+
+/* paypal and stripe logo */
+.payment-option {
+  display: flex;
+  align-items: center;
+}
+.payment-option .fab {
+  margin-left: 10px; /* Adjust the margin as needed */
+  font-size: 30px; /* Adjust the font size as desired */
 }
 
 .products {
@@ -167,6 +191,11 @@ main {
 }
 .product-info {
   padding: 1rem;
+}
+
+.productEmail {
+  color: var(--dark);
+  text-decoration: none;
 }
 
 .lens {
@@ -352,6 +381,10 @@ a.email {
   padding: 0;
 }
 
+.send-reply-button {
+  margin-right: 20px; /* Adjust the value to increase/decrease the gap */
+}
+
 /* if a X button is added to sidebar */
 .close-btn {
   position: absolute;
@@ -439,19 +472,24 @@ a.email {
     font-size: 1.5rem;
   }
 
+  body {
+    font-size: 12px; /* Adjust the base font size for the entire body */
+  }
   h1 {
-    font-size: 0.1rem;
-    padding: 0.5rem 0;
+    font-size: 20px; /* Adjust the font size for h1 tags */
   }
-
   h2 {
-    font-size: 0.8rem;
-    padding: 0.5rem 0;
+    font-size: 18px; /* Adjust the font size for h2 tags */
   }
-
   h3 {
-    padding: 1rem 0;
-    font-size: smaller;
+    font-size: 16px; /* Adjust the font size for h3 tags */
+  }
+  p,
+  .content,
+  .about,
+  .search h3,
+  .jumbotron1 {
+    font-size: 14px; /* Adjust the font size for paragraphs and specific elements */
   }
 
   /* *********************** Header ************************ */
@@ -509,6 +547,7 @@ a.email {
     display: flex;
     flex-direction: row;
     text-align: center;
+    text-decoration: none;
     max-width: 28rem;
     max-height: 300px;
   }

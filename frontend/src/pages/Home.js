@@ -116,22 +116,29 @@ export default function Home() {
         </Helmet>
         <div className='box'>
           <p>
-            ~ I hand picked all the items over years of collecting and
-            descriptions are given to the best of my knowledge. ~
+            ~ Over the years, I've meticulously curated this collection by
+            personally handpicking each item. The descriptions provided are a
+            reflection of my knowledge and passion for these pieces. I've
+            invested significant time and dedication into sourcing and
+            collecting these items, aiming to provide accurate insights into
+            their origins and characteristics based on my personal experience as
+            a collector. ~
           </p>
         </div>
         <br />
         <Row>
           <Col>
-            {/* react skeleton for product card */}
+            {/* react skeleton for product card 1 row of 6 product cards */}
             {loading ? (
-              <Row>
-                {[...Array(12).keys()].map((i) => (
-                  <Col key={i} sm={6} md={4} lg={3} className='mb-3'>
-                    <SkeletonHome />
-                  </Col>
-                ))}
-              </Row>
+              <>
+                <Row>
+                  {[...Array(6).keys()].map((i) => (
+                    <Col key={i} sm={6} md={4} lg={2} xl={2} className='mb-3'>
+                      <SkeletonHome />
+                    </Col>
+                  ))}
+                </Row>
+              </>
             ) : error ? (
               <MessageBox variant='danger'>{error}</MessageBox>
             ) : (

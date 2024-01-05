@@ -536,3 +536,35 @@ messageRoutes.js > updated with the message reply using nodemailer
 
 config.js > updated
 .env.example > updated
+
+# Twenty Second Commit, update Message component
+
+BACKEND
+server.js > updated for /api/messages
+utils.js > updated strong for payment method
+
+folder: routes
+messageRoutes > updated for /api/messages
+orderRoutes > updated for countInStock "item.quantity"
+
+FRONTEND
+folder: components
+StripeCheckout.js > updated
+skeleton > SkeletonDashboardScreen.js > updated for messages
+
+folder: screens
+Cart.js > updated for low quantity alert
+Contact.js > updated for /api/messages
+Dashboard.js > updated for /api/messages - getting messages notice
+Home.js > updated for 6 cards per row not 4
+Messages.js > updated for /api/messages
+Order.js > updated Stripe payment method to read Credit Card for customer understanding
+OrderHistory.js > updated className box
+PaymentMethod.js > updated for PayPal and Stripe logos
+PlaceOrder.js > updated for Stripe to read Credit Card for customer understanding
+ProductEdit.js > updated with className box
+ProductMag.js > updated with contact us
+ProductMagRow.js > updated with contact us
+Profile.js > updated with className box
+
+index.css > updated for PayPal and Stripe, adjust font sizes

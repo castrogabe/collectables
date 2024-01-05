@@ -41,6 +41,18 @@ productRouter.put(
     const productId = req.params.id;
     const product = await Product.findById(productId);
     if (product) {
+      // Log the 'countInStock' value received in the request body
+      console.log('Incoming countInStock:', req.body.countInStock);
+
+      // Extract the 'countInStock' value from the request body and parse it to a number
+      const countInStock = parseInt(req.body.countInStock);
+
+      // Check if the parsed value is a valid number
+      if (isNaN(countInStock)) {
+        return res.status(400).send({ message: 'Invalid countInStock value' });
+      }
+      // Assign validated 'countInStock' to the product
+      product.countInStock = countInStock;
       product.name = req.body.name;
       product.slug = req.body.slug;
       product.price = req.body.price;

@@ -23,7 +23,7 @@ export default function Contact() {
       };
       setLoading(true);
       toast.success('Success, message sent!', { autoClose: 1000 }); // Display success message for 1 second
-      await axios.post(`/contact`, newMessage); // Make the API request
+      await axios.post(`/api/messages/contact`, newMessage); // Make the API request
     } catch (err) {
       toast.error('Message not sent', { autoClose: 1000 }); // Display error message for 1 second
     }
@@ -33,12 +33,10 @@ export default function Contact() {
   return (
     <Container>
       <Helmet>
-        <title>Contact Us</title>
+        <title>Contact Antiquepox</title>
       </Helmet>
       <br />
-      <div className='box'>
-        <h1>Contact Us</h1>
-      </div>
+      <h4 className='box'>Contact Antiquepox</h4>
       <Form onSubmit={submitHandler}>
         <Form.Group className='mb-3' controlId='name'>
           <Form.Label> Full Name</Form.Label>
@@ -61,9 +59,9 @@ export default function Contact() {
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='subject'>
-          <Form.Label>Item</Form.Label>
+          <Form.Label>Subject / Item Name</Form.Label>
           <Form.Control
-            placeholder='item'
+            placeholder='ex: Ceramic Vase from Country of Origin'
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
             required

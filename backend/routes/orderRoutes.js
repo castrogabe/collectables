@@ -128,14 +128,20 @@ orderRouter.put(
         email_address: req.body.email_address,
       };
 
-      // Update count in stock
+      // Update count in stock for each item in the order
       const updatedOrder = await order.save();
       for (const index in updatedOrder.orderItems) {
         const item = updatedOrder.orderItems[index];
         const product = await Product.findById(item.product);
-        product.countInStock -= 1;
-        product.sold += item.qty;
+        //   console.log('Item quantity:', item.quantity);
+        //   console.log(
+        //     'Product countInStock before update:',
+        //     product.countInStock
+        //   );
+        product.countInStock -= item.quantity; // Subtract the value of item.quantity from countInStock
+        product.sold += item.quantity;
         await product.save();
+        //   console.log('Product countInStock after update:', product.countInStock);
       }
       // end count in stock
 
@@ -146,7 +152,7 @@ orderRouter.put(
       const emailContent = {
         from: 'gabudemy@gmail.com', // your email
         to: customerEmail,
-        subject: 'PayPal Purchase Receipt from antiquepox.com', // email subject
+        subject: 'Purchase Receipt from antiquepox.com', // email subject
         html: purchaseDetails,
       };
 

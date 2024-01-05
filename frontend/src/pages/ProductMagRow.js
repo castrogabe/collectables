@@ -247,6 +247,11 @@ function ProductMagRow() {
                   numReviews={product.numReviews}
                 ></Rating>
               </ListGroup.Item>
+              <ListGroup.Item>
+                <Link to='/contact' className='email'>
+                  Product Question?
+                </Link>
+              </ListGroup.Item>
               <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
               <ListGroup.Item>From : {product.from}</ListGroup.Item>
               <ListGroup.Item>Finish : {product.finish}</ListGroup.Item>

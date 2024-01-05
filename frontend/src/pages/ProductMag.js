@@ -177,7 +177,11 @@ function ProductMag() {
     <div className='content'>
       <br />
       <Row className='box'>
-        <p className='mt-3'>~ All of the items have been hand picked. ~</p>
+        <p className='mt-3'>
+          ~ Throughout an extensive span of collecting, I have meticulously
+          curated each item myself. The descriptions offered are reflective of
+          my comprehensive knowledge and informed understanding. ~
+        </p>
       </Row>
       <br />
       <Row>
@@ -186,7 +190,12 @@ function ProductMag() {
             <Carousel>
               {product.images.map((image, index) => (
                 <div key={index}>
-                  <img src={image} alt={product.name} className='img-large' />
+                  <img
+                    src={image}
+                    alt={product.name}
+                    className='img-large'
+                    loading='lazy'
+                  />
                 </div>
               ))}
             </Carousel>
@@ -203,7 +212,7 @@ function ProductMag() {
                     ref={addRefs}
                     onClick={() => openLightbox(i + 1)}
                   >
-                    <Card.Img src={image} alt='' />
+                    <Card.Img src={image} alt='' loading='lazy' />
                   </div>
                 ))}
               </div>
@@ -250,6 +259,11 @@ function ProductMag() {
                   rating={product.rating}
                   numReviews={product.numReviews}
                 ></Rating>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Link to='/contact' className='productEmail'>
+                  Product Question?
+                </Link>
               </ListGroup.Item>
               <ListGroup.Item>Price : ${product.price}</ListGroup.Item>
               <ListGroup.Item>From : {product.from}</ListGroup.Item>

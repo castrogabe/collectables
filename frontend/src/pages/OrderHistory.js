@@ -69,8 +69,8 @@ export default function OrderHistory() {
         <title>Order History</title>
       </Helmet>
       <br />
+      <h1 className='box'>{userInfo.name}'s Order History</h1>
       <div className='box'>
-        <h4>{userInfo.name}'s Order History</h4>
         <p className='lead'>
           Your orders on one place, click details for more information.
         </p>
